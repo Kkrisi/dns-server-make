@@ -1,0 +1,26 @@
+apt update
+apt install isc-dhcp-server
+nano /etc/network/interfaces  dhcp to static
+static
+address ...
+gateway ...
+dns-server
+
+cd /etc/dhcp
+mv dhcpd.conf dhcpd.conf.bak
+nano dhcpd.conf
+
+option domai-name....
+
+cd /etc/default
+ls
+nano isc-dhcp-server
+INTERFACESv4="enp0s3"
+
+kilepes dhcpd -t
+
+systemctl start isc-dhcp-server
+
+ifdown enp0s3
+ifup enp0s3
+ip a
